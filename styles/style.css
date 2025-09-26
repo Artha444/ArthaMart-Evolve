@@ -1,0 +1,315 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #c0c0c0;
+  /* Abu-abu terang untuk teks kecil */
+  --accent-color: #ff4d4d;
+  /* Contoh warna merah untuk hover/active */
+  --dark-bg-text: rgba(255, 255, 255, 0.8);
+  --dark-overlay: rgba(0, 0, 0, 0.4);
+  /* Overlay gelap untuk gambar background */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  background: #000;
+  /* Warna background jika gambar tidak dimuat */
+  color: var(--primary-color);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Transparan gelap */
+  color: var(--primary-color);
+  padding: 20px 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-weight: 700;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+}
+
+.navbar .nav-links ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar .nav-links ul li {
+  margin-left: 30px;
+}
+
+.navbar .nav-links ul li a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.9em;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links ul li a:hover {
+  color: var(--accent-color);
+  /* Warna hover */
+  /* border-bottom: 2px solid var(--accent-color); /* Contoh efek hover */
+}
+
+.navbar .nav-icons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav-icons a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-icons a:hover {
+  color: var(--accent-color);
+}
+
+.navbar .nav-icons a .fa-chevron-down {
+  margin-left: 5px;
+  font-size: 0.7em;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?cs=srgb&dl=pexels-stywo-1054218.jpg&fm=jpg")
+    no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-overlay);
+  /* Overlay gelap */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+.hero-content .tagline-small {
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.hero-content h1 {
+  font-size: 4em;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.btn-learn-more {
+  display: inline-block;
+  background: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-learn-more:hover {
+  background: var(--primary-color);
+  color: #000;
+}
+
+/* Fixed Icons (Cart & Question) */
+.fixed-icons {
+  position: fixed;
+  top: 150px;
+  /* Sesuaikan posisi vertikal */
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+.fixed-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--primary-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* Membuat ikon menjadi bulat */
+  margin-bottom: 10px;
+  /* Jarak antara ikon */
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.fixed-icons a:hover {
+  background: var(--accent-color);
+  /* Contoh warna hover */
+  color: var(--primary-color);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.scroll-indicator span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  /* Aktifkan dot */
+}
+
+/* Media Queries for Responsiveness (Basic example) */
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+    /* Sembunyikan menu navigasi pada layar kecil */
+  }
+
+  .navbar .container {
+    flex-direction: column;
+  }
+
+  .navbar .logo {
+    margin-bottom: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+
+  .fixed-icons {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    flex-direction: row;
+  }
+
+  .fixed-icons a {
+    margin-left: 10px;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2em;
+  }
+
+  .btn-learn-more {
+    padding: 10px 20px;
+    font-size: 0.8em;
+  }
+}
+
+/* ajoa */
+.main {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 90px;
+}
+
+.product {
+  margin: 10px;
+  border: 2px solid;
+  text-align: center;
+  max-width: 300px;
+  padding: 30px;
+}
+
+.product a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  background-color: green;
+  padding: 10px;
+  width: 100%;
+}
+
+.product img {
+  width: 150px;
+}
+
+.main div,
+a,
+p {
+  margin-bottom: 5px;
+}
+
+.price {
+  opacity: 70%;
+  color: green;
+}
+
+.footer {
+  display: flex;
+  background-color: gray;
+  flex-direction: row;
+  width: 100%;
+  bottom: 0;
+  padding: 20px;
+  justify-content: center;
+}
