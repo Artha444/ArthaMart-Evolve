@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +11,7 @@
   <link rel="stylesheet" href="scripts/style.css">
   <style>
     * {
-      font-family:monospace;
+      font-family: monospace;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
@@ -90,6 +93,15 @@
       justify-content: center;
     }
 
+    .username-display {
+      color: yellow;
+      font-weight: bold;
+      margin-right: 15px;
+      padding: 5px 10px;
+      border: 1px solid white;
+      border-radius: 5px;
+    }
+
     @media(max-width: 400px) {
       .header {
         display: flex;
@@ -102,69 +114,31 @@
 <body>
   <header class="header">
     <a href="index.php">Shop</a>
-    <a href="index.php"></a>
     <nav>
       <ul>
         <li><a href="contoh.php">Contoh</a></li>
-        <li><a href="includes/login.php">Login</a></li>
-        <li><a href="includes/logout.php">logout</a></li>
-        <li><a href="includes/admin/dashboard.php">Dashboard</a></li>
+        <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
+          <li class="username-display">
+            👋 Hi, <?php echo htmlspecialchars($_SESSION['name']); ?>
+          </li>
+          <li><a href="includes/logout.php">Logout</a></li>
+          <?php if ($_SESSION['role'] === 'admin'): ?>
+            <li><a href="includes/admin/dashboard.php">Dashboard</a></li>
+          <?php endif; ?>
+        <?php else: ?>
+          <li><a href="includes/login.php">Login</a></li>
+          <li><a href="includes/register.php">Sign Up</a></li>
+        <?php endif; ?>
       </ul>
     </nav>
   </header>
+
   <main class="main">
-    <div class="product">
-      <img src="img/buggati.jpg" alt="">
-      <h2>Product Title</h2>
-      <p>product desc</p>
-      <p>product quantity</p>
-      <p class="price">product price</p>
-      <a href="#">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="img/buggati.jpg" alt="">
-      <h2>Product Title</h2>
-      <p>product desc</p>
-      <p>product quantity</p>
-      <p class="price">product price</p>
-      <a href="#">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="img/buggati.jpg" alt="">
-      <h2>Product Title</h2>
-      <p>product desc</p>
-      <p>product quantity</p>
-      <p class="price">product price</p>
-      <a href="#">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="img/buggati.jpg" alt="">
-      <h2>Product Title</h2>
-      <p>product desc</p>
-      <p>product quantity</p>
-      <p class="price">product price</p>
-      <a href="#">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="img/buggati.jpg" alt="">
-      <h2>Product Title</h2>
-      <p>product desc</p>
-      <p>product quantity</p>
-      <p class="price">product price</p>
-      <a href="#">Buy Now</a>
-    </div>
-    <div class="product">
-      <img src="img/buggati.jpg" alt="">
-      <h2>Product Title</h2>
-      <p>product desc</p>
-      <p>product quantity</p>
-      <p class="price">product price</p>
-      <a href="#">Buy Now</a>
-    </div>
+    <!-- produk kamu -->
   </main>
+
   <footer class="footer">
     <p>copyright@: artha</p>
   </footer>
 </body>
-
 </html>

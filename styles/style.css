@@ -77,8 +77,6 @@ body {
 
 .navbar .nav-links ul li a:hover {
   color: var(--accent-color);
-  /* Warna hover */
-  /* border-bottom: 2px solid var(--accent-color); /* Contoh efek hover */
 }
 
 .navbar .nav-icons {

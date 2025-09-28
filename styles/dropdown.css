@@ -1,0 +1,37 @@
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 150px;
+  background: #222;
+  border-radius: 8px;
+  width: 220px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999;
+}
+.dropdown.active {
+  display: flex;
+}
+.dropdown .profile h3 {
+  margin: 0 15px 0;
+  font-size: 19px;
+}
+.dropdown .profile p {
+  margin: 5px 15px 10px;
+  font-size: 15px;
+}
+.dropdown a {
+  padding: 12px 15px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+.dropdown a:hover {
+  background: #333;
+}
+hr {
+  opacity: 30%;
+}

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +8,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Shop</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/dropdown.css">
 </head>
-
 <body>
   <header class="navbar">
     <div class="container">
@@ -18,25 +20,52 @@
       <nav class="nav-links">
         <ul>
           <li><a href="#">HOME</a></li>
-          <li><a href="#">PRODUCT</a></li>
-          <li><a href="includes/admin/dashboard.php">DASHBOARD</a></li>
           <li><a href="#about">ABOUT</a></li>
-          <li><a href="includes/login.php">LOGIN</a></li>
+          <li><a href="#">PRODUCTS</a></li>
+          <li><a href="#">CONTACT</a></li>
         </ul>
       </nav>
       <div class="nav-icons">
         <a href="#"><i class="fas fa-search"></i></a>
-        <a href="#">EN <i class="fas fa-chevron-down"></i></a>
+        <a><i class="fas fa-user" id="userBtn"></i></a>
       </div>
+
+      <!-- Dropdown -->
+       <div class="dropdown" id="dropdownMenu">
+        <div class="profile">
+          <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
+            <h3>
+            <?php echo htmlspecialchars($_SESSION['name']); ?><br>
+          </h3>
+          <hr>
+          <p>
+          <?php echo htmlspecialchars($_SESSION['role']); ?><br>
+          <?php echo htmlspecialchars($_SESSION['email']); ?>
+          </p>
+            </div>
+            <hr>
+            <?php if ($_SESSION['role'] === 'admin'): ?>
+              <a href="includes/admin/dashboard.php">Dashboard</a>
+              <?php endif; ?>
+              <a href="includes/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+              <div class="profile">
+        <?php else: ?>
+          <h3>Guest</h3>
+          <p>You don't have account</p>
+          </div>
+          <hr>
+          <a href="includes/login.php">Login</a>
+        <?php endif; ?>
+       </div>
     </div>
   </header>
 
   <div class="hero-section">
-    <div class="background-overlay"></div>
+    <div class="background-overlay" id="scrollOverlay"></div>
     <div class="hero-content">
-      <p class="tagline-small">CORPORATE / AGENCY / FREELANCER / PORTFOLIO</p>
+      <p class="tagline-small">SELL / BUY</p>
       <h1>MAKE THINGS HAPPEN</h1>
-      <a href="#main" class="btn-learn-more">LEARN MORE</a>
+      <a href="#main" class="btn-learn-more">BUY NOW</a>
     </div>
   </div>
 
@@ -55,7 +84,7 @@
       <p>product desc</p>
       <p>product quantity</p>
       <p class="price">product price</p>
-      <a href="#">Buy Now</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i> Add to cart</a>
     </div>
     <div class="product">
       <img src="img/buggati.jpg" alt="">
@@ -63,7 +92,7 @@
       <p>product desc</p>
       <p>product quantity</p>
       <p class="price">product price</p>
-      <a href="#">Buy Now</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i> Add to cart</a>
     </div>
     <div class="product">
       <img src="img/buggati.jpg" alt="">
@@ -71,7 +100,7 @@
       <p>product desc</p>
       <p>product quantity</p>
       <p class="price">product price</p>
-      <a href="#">Buy Now</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i> Add to cart</a>
     </div>
     <div class="product">
       <img src="img/buggati.jpg" alt="">
@@ -79,7 +108,7 @@
       <p>product desc</p>
       <p>product quantity</p>
       <p class="price">product price</p>
-      <a href="#">Buy Now</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i> Add to cart</a>
     </div>
     <div class="product">
       <img src="img/buggati.jpg" alt="">
@@ -87,7 +116,7 @@
       <p>product desc</p>
       <p>product quantity</p>
       <p class="price">product price</p>
-      <a href="#">Buy Now</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i> Add to cart</a>
     </div>
     <div class="product">
       <img src="img/buggati.jpg" alt="">
@@ -95,7 +124,7 @@
       <p>product desc</p>
       <p>product quantity</p>
       <p class="price">product price</p>
-      <a href="#">Buy Now</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i> Add to cart</a>
     </div>
   </div>
   <div id="about">
@@ -104,6 +133,7 @@
   <footer class="footer">
     <p>Copyright 2025 KMART.com | operated by Divilab LLC Privacy Policy | Site Terms & Disclosures.Hosted by Artha</p>
   </footer>
+  <script src="scripts/script.js"></script>
 </body>
 
 </html>
