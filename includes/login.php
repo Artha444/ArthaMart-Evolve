@@ -25,6 +25,7 @@ if (isset($_POST['login'])) {
     // cek apakah password cocok
     if (password_verify($password, $row['password'])) {
       // set session login
+      $_SESSION['id'] = $row['id'];
       $_SESSION['login'] = true;
       $_SESSION['email'] = $email;
       $_SESSION['name'] = $row['name'];
@@ -62,8 +63,8 @@ endif;
     <form action="" method="post">
       <input type="email" name="email" placeholder="Enter you email here" required>
       <input type="password" name="password" placeholder="Enter you password here" required>
-      <button type="submit" name="login">Login</button>
-      <a href="register.php">Sign Up</a>
+      <button type="submit" name="login">Sign In</button>
+      <p>Don't have an account? <a href="register.php">Sign Up</a></p>
     </form>
   </div>
 </body>

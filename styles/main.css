@@ -9,6 +9,10 @@
   --dark-bg-text: rgba(255, 255, 255, 0.8);
   --dark-overlay: rgba(0, 0, 0, 0.4);
   /* Overlay gelap untuk gambar background */
+  --color-black: #1a1a1a; /* Hitam pekat */
+  --color-gold: #ffc72c; /* Emas yang berani (bisa disesuaikan: #b38a00 untuk emas yang lebih tua) */
+  --color-light-gold: #fff5e0; /* Emas sangat muda untuk teks sekunder */
+  --color-white: #ffffff;
 }
 
 * {
@@ -21,13 +25,11 @@
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
-  background: #000;
-  /* Warna background jika gambar tidak dimuat */
-  color: var(--primary-color);
+  background: #1A1A1A;
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -39,7 +41,6 @@ body {
   left: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
-  /* Transparan gelap */
   color: var(--primary-color);
   padding: 20px 0;
   z-index: 1000;
@@ -106,8 +107,6 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url("https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?cs=srgb&dl=pexels-stywo-1054218.jpg&fm=jpg")
-    no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,40 +163,6 @@ body {
   color: #000;
 }
 
-/* Fixed Icons (Cart & Question) */
-.fixed-icons {
-  position: fixed;
-  top: 150px;
-  /* Sesuaikan posisi vertikal */
-  right: 20px;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-}
-
-.fixed-icons a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.7);
-  color: var(--primary-color);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  /* Membuat ikon menjadi bulat */
-  margin-bottom: 10px;
-  /* Jarak antara ikon */
-  font-size: 1.2em;
-  text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.fixed-icons a:hover {
-  background: var(--accent-color);
-  /* Contoh warna hover */
-  color: var(--primary-color);
-}
-
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
@@ -218,6 +183,70 @@ body {
   /* Aktifkan dot */
 }
 
+/* FOOTER */
+footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  height: auto;
+  padding-top: 40px;
+  width: 100vw;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.footer-content h3 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 28px;
+  font-size: 
+}
+
+.socials {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+.socials li {
+  margin: 0 10px;
+}
+
+.socials li a {
+  text-decoration: none;
+  color: #fff;
+  border: 1.1px solid white;
+  padding: 5px;
+  border-radius: 50%;
+}
+.footer-bottom {
+  background: #000;
+  width: 100vw;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  text-align: center;
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.footer-bottom p a {
+  color: #44bae8
+}
+/* END FOOTER */
+
 /* Media Queries for Responsiveness (Basic example) */
 @media (max-width: 768px) {
   .navbar .nav-links {
@@ -236,18 +265,6 @@ body {
   .hero-content h1 {
     font-size: 2.5em;
   }
-
-  .fixed-icons {
-    top: auto;
-    bottom: 20px;
-    right: 20px;
-    flex-direction: row;
-  }
-
-  .fixed-icons a {
-    margin-left: 10px;
-    margin-bottom: 0;
-  }
 }
 
 @media (max-width: 480px) {
@@ -261,53 +278,104 @@ body {
   }
 }
 
-/* ajoa */
-.main {
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 90px;
-}
-
-.product {
-  margin: 10px;
-  border: 2px solid;
-  text-align: center;
-  max-width: 300px;
-  padding: 30px;
-}
-
-.product a {
-  display: block;
-  text-decoration: none;
-  color: white;
-  background-color: green;
-  padding: 10px;
+/* Style Section Utama */
+.about-us-section {
+  background: #f2f2f2f2;
+  padding: 80px 20px;
   width: 100%;
 }
-
-.product img {
-  width: 150px;
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
 }
 
-.main div,
-a,
-p {
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex; /* Menggunakan Flexbox untuk tata letak 2 kolom */
+  flex-wrap: wrap; /* Memungkinkan kolom untuk turun ke bawah saat di mobile */
+  align-items: center; /* Meratakan item secara vertikal di tengah */
+  gap: 40px; /* Jarak antar kolom */
+}
+/* Style Kolom Teks */
+.about-text-side {
+  flex: 1;
+  min-width: 300px;
+}
+
+.sub-heading {
+  display: block;
+  color: #007bff; /* Warna aksen biru */
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-text-side h2 {
+  font-size: 2.5em;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.about-text-side p {
+  font-size: 20px;
+  margin-bottom: 25px;
+  color: #202020ff;
+}
+
+/* Kotak Misi dan Visi */
+.mission-vision {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.box-mv {
+  background-color: #fff;
+  padding: 20px;
+  border-left: 4px solid #007bff; /* Garis aksen */
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  flex: 1;
+}
+
+.box-mv h3 {
+  font-size: 1.1em;
+  color: #007bff;
   margin-bottom: 5px;
 }
 
-.price {
-  opacity: 70%;
-  color: green;
+.box-mv p {
+  margin-bottom: 0;
+  font-size: 0.9em;
 }
 
-.footer {
-  display: flex;
-  background-color: gray;
-  flex-direction: row;
-  width: 100%;
-  bottom: 0;
-  padding: 20px;
-  justify-content: center;
+/* Media Queries untuk Responsif */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column; /* Mengubah tata letak menjadi tumpukan vertikal */
+    text-align: center;
+  }
+
+  .about-text-side h2 {
+    font-size: 2em;
+  }
+
+  .about-image {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mission-vision {
+    flex-direction: column; /* Misi & Visi juga ditumpuk */
+  }
+  .box-mv {
+    text-align: left;
+  }
 }

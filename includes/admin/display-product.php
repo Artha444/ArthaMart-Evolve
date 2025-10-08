@@ -44,7 +44,7 @@ include "../../config/conn.php";
         <td><?php echo $row['description'] ?></td>
         <td><?php echo $row['price'] ?></td>
         <td><?php echo $row['stock'] ?></td>
-        <td><img style="max-width: 250px;" src="../../img/<?php echo $row['image'] ?>" ></td>
+        <td><img style="max-width: 150px;" src="../../img/<?php echo $row['image'] ?>" ></td>
         <td><?php echo $row['category_name'] ?></td>
         <td><a class="update" href="update-product.php?product_id=<?php echo $row['id'] ?>">Update</a></td>
         <td><a class="delete" href="delete-product.php?product_id=<?php echo $row['id'] ?>">Delete</a></td>

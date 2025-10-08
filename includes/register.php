@@ -53,8 +53,8 @@ $kodeuser = $huruf . sprintf("%02s", $urutan);
           <option value="user">User</option>
         </select>
         <input type="password" name="password" placeholder="Enter password" required>
-        <input type="submit" name="submit">
-        <a href="login.php">Login</a>
+        <button type="submit" name="submit">Create Account</button>
+        <p>Already have an account? <a href="login.php">Sign In</a></p>
       </form>
     </div>
   </div>

@@ -1,0 +1,161 @@
+/* Bagian Kontak Utama */
+.contact-section {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    background: #fff;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Kolom Informasi Kontak (Kiri) --- */
+.contact-info {
+    background: #005179ff; /* Warna latar belakang info kontak yang lebih gelap */
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%; /* Proporsi kolom info */
+}
+
+.contact-info h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.contact-info .info {
+    position: relative;
+    margin: 20px 0;
+}
+
+.contact-info .info li {
+    list-style: none;
+    display: flex;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+
+.contact-info .info li span:nth-child(1) {
+    width: 30px;
+    min-width: 30px;
+}
+
+.contact-info .info li span:nth-child(1) i {
+    color: rgba(0, 205, 232, 1)/* Warna aksen ikon */
+    font-size: 1.2em;
+}
+
+.contact-info .info li span:nth-child(2) {
+    color: #fff;
+    font-weight: 300;
+    margin-left: 10px;
+}
+
+/* --- Kolom Formulir Kontak (Kanan) --- */
+.contact-form {
+    background: #fff;
+    padding: 30px;
+    width: 65%; /* Proporsi kolom form */
+}
+
+.contact-form h2 {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.contact-form .inputBox {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.contact-form .inputBox input,
+.contact-form .inputBox textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+}
+
+/* Efek Floating Label */
+.contact-form .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+}
+
+.contact-form .inputBox input:focus ~ span,
+.contact-form .inputBox input:valid ~ span,
+.contact-form .inputBox textarea:focus ~ span,
+.contact-form .inputBox textarea:valid ~ span {
+    color: #00796b;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+/* Tombol Kirim */
+.submit-btn {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #007bffa3;
+}
+
+/* --- Media Query (Responsif) --- */
+@media (max-width: 991px) {
+    .contact-container {
+        flex-direction: column; /* Kolom info dan form menumpuk */
+        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%; /* Lebar penuh */
+    }
+
+    .contact-info {
+        padding: 40px;
+    }
+
+    .contact-form {
+        padding: 40px;
+    }
+
+    .sci {
+        justify-content: center; /* Ikon sosial media di tengah */
+    }
+}
+
+.tittle {
+  width: 100%;
+  background: #4ea8acae;
+  padding: 20px 0px 20px 100px;
+}

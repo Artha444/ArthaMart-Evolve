@@ -1,0 +1,464 @@
+/* --- VARS (Pastikan ini ada di style.css Anda) --- */
+:root {
+    --color-dark-primary: #0A0A0A; /* Arang Gelap */
+    --color-dark-secondary: #1A1A1A; /* Latar Belakang Card */
+    --color-gold-accent: #FFD700; /* Emas Murni */
+    --color-text-light: #FFFFFF;
+    --color-text-muted: #AAAAAA;
+    --color-sale-tag: #E91E63; /* Warna aksen untuk diskon (Magenta) */
+}
+
+/* === MODIFIKASI PRODUCT CARD (GAYA OGANI) === */
+
+.product-card.ogani-style {
+    background: var(--color-dark-secondary);
+    max-width: 300px;
+    margin: 15px;
+    border-radius: 0; /* Ogani cenderung tanpa border radius */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Container Gambar */
+.product-image-container {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: #222;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Label Diskon */
+.product-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--color-sale-tag);
+    color: var(--color-text-light);
+    padding: 2px 8px;
+    font-size: 0.75em;
+    font-weight: 600;
+    z-index: 10;
+}
+
+/* Aksi Ikon (Muncul saat Hover) */
+.product-icon-actions {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) translateX(100px); /* Sembunyikan ke kanan */
+    list-style: none;
+    z-index: 5;
+    transition: transform 0.4s ease-in-out;
+    opacity: 0;
+}
+
+.product-icon-actions li {
+    margin-bottom: 10px;
+}
+
+.product-icon-actions a {
+    display: block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: var(--color-text-light); /* Background ikon putih */
+    color: var(--color-dark-primary); /* Ikon berwarna gelap */
+    border-radius: 50%;
+    font-size: 0.9em;
+    transition: all 0.3s;
+}
+
+.product-icon-actions a:hover {
+    background: var(--color-gold-accent); /* Hover Emas */
+    color: var(--color-dark-primary);
+    transform: rotate(360deg);
+}
+
+
+/* === HOVER EFFECT UTAMA PADA CARD === */
+.product-card.ogani-style:hover .product-image-container img {
+    transform: scale(1.1); /* Zoom in gambar */
+}
+
+.product-card.ogani-style:hover .product-icon-actions {
+    transform: translateY(-50%) translateX(0); /* Tampilkan ikon */
+    opacity: 1;
+}
+
+/* Konten Teks */
+.card-content {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.product-category {
+    font-size: 0.7em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.product-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-text-light);
+    margin-bottom: 10px;
+}
+
+.product-price-rating {
+    display: block;
+}
+
+.product-price-new {
+    color: var(--color-gold-accent);
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.product-price-old {
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+
+/* Reset & Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-dark-primary);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-light);
+}
+
+/* === HEADER STYLE === */
+.main-header {
+    background-color: var(--color-dark-secondary);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-gold-accent);
+}
+
+nav a {
+    margin: 0 15px;
+    font-weight: 300;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-gold-accent);
+}
+
+.header-icons i {
+    margin-left: 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.header-icons i:hover {
+    color: var(--color-gold-accent);
+}
+
+/* === PRODUCT SECTION === */
+.product-section {
+    padding: 80px 50px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: var(--color-gold-accent); /* Judul utama menggunakan emas */
+    text-transform: uppercase;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* === FOOTER STYLE === */
+.main-footer {
+    background-color: var(--color-dark-secondary);
+    padding: 40px 50px 20px;
+}
+
+.footer-container {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 30px;
+}
+
+.footer-contact, .footer-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-contact h3, .footer-form h3 {
+    color: var(--color-gold-accent);
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.footer-contact p {
+    color: var(--color-text-muted);
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.footer-contact i {
+    color: var(--color-gold-accent);
+    margin-right: 10px;
+}
+
+/* Footer Form */
+.footer-form input, .footer-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #2a2a2a; /* Input background gelap */
+    border: 1px solid #333;
+    color: var(--color-text-light);
+    border-radius: 4px;
+}
+
+.footer-form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.btn-submit {
+    background-color: var(--color-gold-accent);
+    color: var(--color-dark-primary);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #e6c200;
+}
+
+/* Hak Cipta */
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.8em;
+    color: var(--color-text-muted);
+}
+
+/* Media Query untuk Responsif */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 20px;
+    }
+    nav {
+        display: none; /* Sembunyikan menu navigasi di mobile */
+    }
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-contact, .footer-form {
+        min-width: unset;
+    }
+}
+
+
+
+
+
+/* === SECTION BANNER CTA STYLE === */
+.cta-banner-section {
+    padding: 100px 50px;
+    background-color: var(--color-dark-primary); /* Latar Belakang Gelap */
+    text-align: center;
+}
+
+.cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Kita bisa tambahkan gambar background pada container jika diinginkan */
+    /* background: url('path/to/image.jpg') center center / cover no-repeat; */
+    padding: 50px 30px;
+    border: 3px solid var(--color-gold-accent); /* Border Emas yang Elegan */
+}
+
+.cta-subhead {
+    color: var(--color-text-muted);
+    font-size: 1em;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.cta-title {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--color-gold-accent);
+    margin-bottom: 10px;
+}
+
+.cta-tagline {
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.btn-shop-now {
+    display: inline-block;
+    background-color: var(--color-gold-accent);
+    color: var(--color-dark-primary);
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-shop-now:hover {
+    background-color: #e6c200;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+
+/* --- VARS (Pastikan sudah terdefinisi) --- */
+/* :root {
+    --color-dark-primary: #0A0A0A;
+    --color-dark-secondary: #1A1A1A;
+    --color-gold-accent: #FFD700;
+    --color-text-light: #FFFFFF;
+    --color-text-muted: #AAAAAA;
+} */
+
+/* === STYLE IKON AKUN DALAM HEADER === */
+
+.header-icons .account-dropdown-wrapper {
+    position: relative; /* Penting untuk menempatkan menu dropdown */
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.header-icons .account-icon {
+    font-size: 1.1em;
+    cursor: pointer;
+    color: var(--color-text-light);
+    transition: color 0.3s;
+}
+
+.header-icons .account-icon:hover {
+    color: var(--color-gold-accent);
+}
+
+/* === STYLE DROPDOWN MENU === */
+
+.account-dropdown-menu {
+    position: absolute;
+    top: 100%; /* Posisi di bawah ikon */
+    right: 0; /* Rata kanan dengan ikon */
+    width: 200px;
+    background-color: var(--color-dark-secondary);
+    border: 1px solid var(--color-gold-accent); /* Border emas sebagai aksen mewah */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 100; /* Pastikan di atas elemen lain */
+    
+    /* Secara default, sembunyikan dropdown */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Tampilkan Dropdown saat hover pada wrapper */
+.account-dropdown-wrapper:hover .account-dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tampilan tautan di dalam dropdown */
+.account-dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--color-text-light);
+    font-size: 0.9em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.account-dropdown-menu a:hover {
+    background-color: #2a2a2a; /* Warna hover gelap */
+    color: var(--color-gold-accent); /* Teks berubah menjadi emas */
+}
+
+/* Garis Pemisah */
+.account-dropdown-menu hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 5px 0;
+}
+
+/* Info Pengguna Header (Opsional) */
+.user-info-header {
+    padding: 10px 15px;
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #333;
+}
+
+.user-info-header p {
+    margin: 0;
+    color: var(--color-text-light);
+    font-weight: 600;
+}
+
+/* Tombol Keluar (Logout) */
+.logout-link {
+    color: var(--color-text-muted) !important;
+}
+
+.logout-link i {
+    margin-right: 8px;
+}
